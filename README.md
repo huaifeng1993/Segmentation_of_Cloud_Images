@@ -3,7 +3,7 @@ ______________________________________________
 
 基于密集全连接网络的地基云图分割，本工程采用DenseNet作为骨干网络，在DenseNet提取的特征图之上采用FCN网络对云图实施分割。
 结果如下图,中间图为标签右侧图为预测值：
-！[1](https://github.com/huaifeng1993/Segmentation_of_Cloud_Images/blob/master/result/Figure_1.png)
+<img src="https://github.com/huaifeng1993/Segmentation_of_Cloud_Images/blob/master/result/Figure_1.png" alt="1" align=center />
  ！[sd](./result/Figure_2.png)
 ！[3](/result/Figure_3.png)
 ！[4](/result/Figure_4.png)
