@@ -1,22 +1,23 @@
 # DenseNetFCN for segmentation of cloud images
 ______________________________________________
 
-基于密集全连接网络的地基云图分割，本工程采用DenseNet作为骨干网络，在DenseNet提取的特征图之上采用FCN网络对云图实施分割。
-结果如下图,中间图为标签右侧图为预测值：
-<img src="https://github.com/huaifeng1993/Segmentation_of_Cloud_Images/blob/master/result/Figure_1.png" alt="1" align=center />
-<img src="https://github.com/huaifeng1993/Segmentation_of_Cloud_Images/blob/master/result/Figure_2.png" alt="2" align=center />
-<img src="https://github.com/huaifeng1993/Segmentation_of_Cloud_Images/blob/master/result/Figure_3.png" alt="3" align=center />
+基于DFANet:Deep Feature Aggregation for Real-Time Semantic Segmentation 深度特征聚合网络的地基云图分割。因为文章代码暂时还没有开源，所以复现的网络在细节上可能有一些问题。iou在0.87～0.88之间，F1，P，R，Acc在0.93左右。输入600x600大小的云图，显卡为GTX2080的条件下FPS约为100。保存的模型大小为7.8m。
+结果如下图右侧图为预测值：
+
+<img src="result/0sigmoid.png" alt="1" align=center />
+<img src="result/10sigmoid.png" alt="2" align=center />
+<img src="result/15sigmoid.png" alt="3" align=center />
+<img src="result/25sigmoid.png" alt="3" align=center />
 
 ## 1.环境要求
-    Python 3.4/3.5
+    Python 3.6
     numpy
     scipy
     Pillow
     cython
     matplotlib
     scikit-image
-    tensorflow>=1.3.0
-    keras>=2.0.8
+    pytorch1.0
     opencv-python
     h5py
     imgaug
@@ -25,17 +26,19 @@ ______________________________________________
 ```
 project 
   |--README.md  
-  |--cloudData 
-  |--DeFCN
-      |--code   
-         |--tmp
-      |--result 
-  ```
+  |--data/
+  |--model/
+  |--result/
+  |--main.py
+  |--config.py
+  |--data.py
+  |--detection.py
+
+```
  ### 2.1文件目录说明
- * data存放训练数据。
- * code存放训练代码。测试代码。评价代码。
+ * data存放训练数据。。
  * result存放测试图。
- * code/tmp 存放训练的模型
+ * log 存放训练的模型
  ## 4.如何训练
  * 命令行运行de_main.py
  * 训练完成之后运行detection.py执行检测任务
